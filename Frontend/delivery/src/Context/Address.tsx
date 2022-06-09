@@ -19,6 +19,7 @@ interface AddressContextData {
     setDestiny(value: any): void,
     handleSaveAddressOrigin(): void,
     handleSaveAddressDestiny(): void,
+    handleGetAddress(): void
 }
 
 export interface AddressData {
@@ -222,10 +223,6 @@ export const AddressProvider: React.FC<AddressContextChilden> = ({children}) => 
     }
 
     useEffect(() => {
-        handleGetAddress();
-    }, []);
-
-    useEffect(() => {
         handleGetGeolocationOrigin(origin);
     }, [origin]);
 
@@ -239,7 +236,8 @@ export const AddressProvider: React.FC<AddressContextChilden> = ({children}) => 
                 destiny, setDestiny,
                 handleSaveAddressOrigin,
                 handleSaveAddressDestiny,
-                showListAddress, handleShowListAddress, handleSelectAddress 
+                showListAddress, handleShowListAddress, handleSelectAddress,
+                handleGetAddress
             }}>
             {children}
         </AddressContext.Provider>

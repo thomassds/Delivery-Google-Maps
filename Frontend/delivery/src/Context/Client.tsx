@@ -23,7 +23,8 @@ interface ClientContextData {
     handleSelectClient(data: ClientData): void,
     handleFilterClients(filter: string): void,
     showList: boolean,
-    handleSaveClient(): void
+    handleSaveClient(): void,
+    handleGetClients(): void
 }
 
 export const ClientContext = createContext<ClientContextData>({} as ClientContextData);
@@ -80,12 +81,9 @@ export const ClientProvider: React.FC<ClientContextChilden> = ({children}) => {
         setListClients(data);
     }
 
-    useEffect(() => {
-        handleGetClients();
 
-    }, []);
     return ( 
-        <ClientContext.Provider value={{ client,setClient, clients, listClients, showList, handleShowList, handleSelectClient, handleFilterClients, handleSaveClient }}>
+        <ClientContext.Provider value={{ handleGetClients, client, setClient, clients, listClients, showList, handleShowList, handleSelectClient, handleFilterClients, handleSaveClient }}>
             {children}
         </ClientContext.Provider>
     );

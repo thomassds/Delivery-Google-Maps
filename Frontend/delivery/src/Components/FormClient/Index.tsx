@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { ClientContext } from "../../Context/Client";
 import { DeliveryContext } from "../../Context/Delivery";
@@ -6,8 +6,11 @@ import { DeliveryContext } from "../../Context/Delivery";
 import { Button } from "../Button/Button";
 
 export function FormClient() {
-    const { handleSaveClient, client, setClient, listClients, showList, handleShowList, handleSelectClient, handleFilterClients } = useContext(ClientContext);
+    const { handleGetClients, handleSaveClient, client, setClient, listClients, showList, handleShowList, handleSelectClient, handleFilterClients } = useContext(ClientContext);
 
+    useEffect(() => {
+        handleGetClients();
+    }, [])
     return(
         <div className="w-[1000px] bg-[#F2C849] p-6 rounded-lg flex flex-col items-center text-black">
             <strong>Selecione ou Cadastre um novo Cliente</strong>

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { AddressContext } from "../../Context/Address";
 import { DeliveryContext } from "../../Context/Delivery";
@@ -8,8 +8,11 @@ import { Button } from "../Button/Button";
 import { ListAddress } from "../ListAddress";
 
 export function FormDestiny() {
-    const { destiny, setDestiny, handleSaveAddressDestiny } = useContext(AddressContext);
+    const { handleGetAddress, destiny, setDestiny, handleSaveAddressDestiny } = useContext(AddressContext);
 
+    useEffect(() => {
+        handleGetAddress();
+    }, [])
     return (
         <div className="w-[1000px] bg-[#F2C849] p-6 rounded-lg flex flex-col items-center text-black">
             <strong>Selecione ou Cadastre um novo Endereço de Destino</strong>
