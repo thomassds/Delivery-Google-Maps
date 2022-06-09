@@ -53,4 +53,6 @@ model Delivery {
 
   destiny       Address @relation(name: "destiny",fields: [id_destiny], references: [id])
   id_destiny    String
+
+  @@map("deliveries")
 }
