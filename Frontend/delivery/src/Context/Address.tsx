@@ -42,7 +42,6 @@ export const AddressProvider: React.FC<AddressContextChilden> = ({children}) => 
     const { handleNextFormOrigin, handleNextFormDestiny } = useContext(DeliveryContext);
     const { loading, setLoading } = useContext(LoadingContext);
 
-    const [address, setAddress] = useState<AddressData>({});
     const [adresses, setAdresses] = useState<AddressData[]>([]);
     const [listAddress, setListAddress] = useState<AddressData[]>([]);
 
@@ -227,7 +226,7 @@ export const AddressProvider: React.FC<AddressContextChilden> = ({children}) => 
     }, [origin]);
 
     useEffect(() => {
-        handleGetGeolocationDestiny(origin);
+        handleGetGeolocationDestiny(destiny);
     }, [destiny]);
     return ( 
         <AddressContext.Provider 
