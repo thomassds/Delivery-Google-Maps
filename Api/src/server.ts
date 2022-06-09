@@ -11,5 +11,5 @@ app.use(cors());
 app.use(routes);
 
 app.listen(process.env.PORT || 3333, () => {
-    console.info("Server is running on port: 3333");
+    console.info("Server is running");
 });
