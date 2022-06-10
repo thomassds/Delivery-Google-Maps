@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -46,13 +46,13 @@ model Delivery {
   delivery_date DateTime
 
   client        Client? @relation(fields: [id_client], references: [id])
-  id_client     String?
+  id_client     String
 
   origin        Address? @relation(name: "origin",fields: [id_origin], references: [id])
-  id_origin     String?
+  id_origin     String
 
   destiny       Address? @relation(name: "destiny",fields: [id_destiny], references: [id])
-  id_destiny    String?
+  id_destiny    String
 
   @@map("deliveries")
 }
