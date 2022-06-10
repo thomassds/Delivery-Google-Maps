@@ -7,8 +7,13 @@ import { DeliveryContext } from "../../Context/Delivery";
 import { FormOrigin } from "../../Components/FormOrigin";
 import { FormDestiny } from "../../Components/FormDestiny";
 import { FormDelivery } from "../../Components/FormDelivery";
+import { ClientContext } from "../../Context/Client";
+import { AddressContext } from "../../Context/Address";
 
 export function Delivery() {
+    const { setClient } = useContext(ClientContext);
+    const { resetAddress } = useContext(AddressContext);
+
     const { deliveries, showDeliveries, showFormDelivery, showFormClient, handleBackForm, handleAddDelivery, showFormOrigin, showFormDestiny } = useContext(DeliveryContext);
 
     return (
@@ -18,7 +23,7 @@ export function Delivery() {
 
                 <input type="text"/>
 
-                <PlusCircle size={32} className="cursor-pointer" onClick={() => handleAddDelivery()}/>
+                <PlusCircle size={32} className="cursor-pointer" onClick={() => {handleAddDelivery(); setClient({}); resetAddress()}}/>
             </div>
 
             { showDeliveries &&

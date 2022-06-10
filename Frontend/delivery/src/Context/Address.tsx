@@ -19,7 +19,8 @@ interface AddressContextData {
     setDestiny(value: any): void,
     handleSaveAddressOrigin(): void,
     handleSaveAddressDestiny(): void,
-    handleGetAddress(): void
+    handleGetAddress(): void,
+    resetAddress(): void
 }
 
 export interface AddressData {
@@ -179,6 +180,11 @@ export const AddressProvider: React.FC<AddressContextChilden> = ({children}) => 
         setShowListAddress(false);
     }
 
+    function resetAddress() {
+        setOrigin({});
+        setDestiny({});
+    }
+
     async function handleGetGeolocationOrigin(address: AddressData) {
         if(!address.street || !address.number || !address.city || address.longitude || address.latitude) {
             return;
@@ -236,7 +242,7 @@ export const AddressProvider: React.FC<AddressContextChilden> = ({children}) => 
                 handleSaveAddressOrigin,
                 handleSaveAddressDestiny,
                 showListAddress, handleShowListAddress, handleSelectAddress,
-                handleGetAddress
+                handleGetAddress, resetAddress
             }}>
             {children}
         </AddressContext.Provider>

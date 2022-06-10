@@ -38,7 +38,7 @@ export const DeliveryContext = createContext<DeliveryContextData>({} as Delivery
 
 export const DeliveryProvider: React.FC<DeliveryContextChilden> = ({children}) => { 
     const { loading, setLoading } = useContext(LoadingContext);
-    
+
     const [delivery, setDelivery] = useState<DeliveryData>({});
     const [deliveries, setDeliveries] = useState<DeliveryData[]>([]); 
 
