@@ -1,5 +1,5 @@
 export interface DeliveryData {
-    delivery_date: Date,
+    delivery_date: Date | null,
     id_client: string,
     id_destiny: string,
     id_origin: string, 
