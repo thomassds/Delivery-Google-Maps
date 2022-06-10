@@ -43,7 +43,7 @@ model Address {
 model Delivery {
   id            String @id @default(uuid())
 
-  delivery_date DateTime
+  delivery_date DateTime?
 
   client        Client @relation(fields: [id_client], references: [id])
   id_client     String
