@@ -19,7 +19,7 @@ export function CardDelivery({ data }: any) {
 
             {showDetail &&
                 <>
-                <div className="w-full p-6 flex justify-between">
+                <div className="w-full p-6 flex justify-between ">
                     <div className="w-[300px] rounded-lg p-6 bg-[#212626] flex flex-col justify-between items-center">
                         <strong>Cliente</strong>
                         <div className="flex flex-col my-6 h-[200px]">
